@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>You</title>
+    <style>
+          body{
+              overflow: hidden;
+                perspective: 1000px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+      }
+
+      div.box-bottom{
+          background: #db3a65;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height:30%;
+          z-index: 10
+      }
+
+      .block-center {
+          width: 20px;
+          height: 20px;
+          position: absolute;
+          left: 50%;
+          animation: hol 3s linear infinite  ;
+      }
+      
+      .block-center div{
+            position: absolute;
+            width: 60px;
+            height: 72px;
+            border-radius: 0;
+            border-radius: 80% 60% 0 0;
+    transform: rotate(-60deg);
+      }
+      .block-center div:after{
+          content: "";
+      }
+      
+      .block-center div:before{
+         content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: inherit;
+        transform: rotate(118deg);
+        border-radius: 50% 80% 0 0;
+        left: 19%;
+        top: 30%;
+          }
+           
+      .h{
+        position: absolute;
+        left: 50%;
+        width: 120px;
+        height: 120px;
+        margin-left: -60px;
+        z-index: 1;
+        margin-top: -60px;
+          animation: h 3s ease infinite alternate;
+      }
+      .h div:first-child{
+        width: 80%;
+        height: 100%;
+        transform: rotate(-47deg);
+        border-radius: 50px 38px 20px 0;
+        position: absolute;
+          background:#db3a65;
+          box-shadow: 10px 0 47px black inset
+      }
+      .h div:last-child{
+          width: 80%;
+        height: 100%;
+        background:#db3a65;
+        transform: rotate(48deg);
+        border-radius: 80px 118px 0 163px;
+        position: absolute;
+        top: 0;
+        right: 0;
+          box-shadow: -10px 0 47px black inset
+      }
+      
+      
+     @keyframes hol{
+          0%{
+              top: 0%;
+              overflow: hidden;
+              transform: rotateX(0deg) 
+          }
+         50%{
+             top: -300px;
+             left: 50%;
+             height: 0;
+             width: 0;
+             transform:  translateX(-50% )  
+         }
+       90%{
+         opacity:1
+       }
+          100%{
+              top: -500px;
+              width: 1000px;
+              height: 500px;
+              transform:  translateX(-50%);
+            opacity:0
+          }
+
+      }
+
+      @keyframes h{
+          0%{
+              transform:scale(.5)
+          }
+          50%{
+             transform:scale(1.5) 
+          }
+           100%{
+             transform:scale(.5) 
+          }
+      }
+      .heart{
+	position: absolute;
+	width: 100px;
+	height: 90px;
+	top: 50%;
+	left: 50%;
+	margin-top: -45px;
+	margin-left: -50px;
+}
+.heart:before, .heart:after{
+	position: absolute;
+	content: "";
+	left: 50px;
+	top: 0;
+	width: 50px;
+	height: 80px;
+	background: #f1c5cf;
+	border-radius: 50px 50px 0 0;
+	transform: rotate(-45deg);
+	transform-origin: 0 100%;
+}
+.heart:after{
+	left: 0;
+	transform: rotate(45deg);
+	transform-origin: 100% 100%;
+}
+.love1{
+	animation: heart-animation 1s linear .4s infinite;
+}
+.love2{
+	animation: beating .5s linear infinite alternate;
+}
+.love1:after, .love1:before{
+	background-color: #ff7693;
+}
+
+@keyframes beating{
+	0%{
+		transform: scale(1.5);
+	}
+	100%{
+		transform: scale(1);
+	}
+}
+@keyframes heart-animation{
+	46%{
+		transform: scale(1);
+	}
+	50%{
+		transform: scale(1.3);
+	}
+	52%{
+		transform: scale(1.5);
+	}
+	55%{
+		transform: scale(3);
+	}
+	100%{
+		opacity: 0;
+		transform: scale(50);
+	}
+}
+    </style>
+</head>
+<body>
+
+
+              
+        <img src='girl.png' class="img-thumbnail" style='height:300px;width:300px;position:absolute;top:290px;left:42%'>
+        <div class="heart love1"></div>
+        <div class="heart love2"></div>
+        <div class="box-bottom">
+            
+                <div class="h">
+                   <div id="h">
+                      
+                  </div>
+                  <div>
+                      
+                  </div>
+                </div>
+                 <div class="hol" id="hol">
+                  
+                   <div id="center" class="block-center"> </div>
+                 </div>
+             </div>
+             
+</body>
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script>
+var myhol = document.getElementById("hol");
+
+// start function randVal
+function randVal(myVal, other){
+    
+    if(Array.isArray(myVal)){
+        
+        var ranInArray = Math.floor(Math.random() * myVal.length);
+    return myVal[ranInArray];
+        
+        
+    }else{
+        
+        var randnum = Math.floor(Math.random() * myVal);
+        return randnum;
+        
+    }
+    
+    
+}
+// end function randVal
+var color =['#cc3673','#273522','#7c001b','#3a0003','#dbd000','#824275','#eba2a3','#d1003b'],
+    sizebox = [10,15,20,5,12,30,22,34,16],
+    myh = document.getElementById("hol"),
+    lV = document.getElementById("h");
+
+
+
+    
+
+
+for(i = 0 ; i < 100 ; i++){
+    for(x = 0 ; x < myh.children.length ; x++){
+        
+            var mypub = document.createElement("div");
+        
+            var size = randVal(sizebox) + "px";
+        
+            mypub.style.backgroundColor = randVal(color) ; 
+        
+            mypub.style.borderColor =  randVal(color) ;
+        
+            mypub.style.width = size  ;
+        
+            mypub.style.height = size  ;
+        
+            mypub.style.left = randVal(100) + "%";
+        
+            mypub.style.top = randVal(100) + "%";
+        
+            myh.children[x].appendChild(mypub);
+        
+    } 
+}
+var ct = document.getElementById("center");
+
+setInterval(function(){
+    lV.style.backgroundColor = randVal(color) ;
+    lV.nextElementSibling.style.backgroundColor = randVal(color) ;
+    
+    for(i = 0 ; i < ct.children.length ; i++){
+        ct.children[i].style.backgroundColor = randVal(color);
+    }
+    
+},1000);
+</script>
+</html>
